@@ -63,20 +63,6 @@ def PixelEit(w,h,input,image):
     print(path)
     output.save(path)
     ui.destroy()
-    # Get input size
-
-    #print(input.shape)
-
-    # Desired "pixelated" size
-
-    #PixelrateW = Tk.Entry(ui)
-    #PixelrateH = Tk.Entry(ui)
-    #root.mainloop()
-    #pixPrecent = pixelScalePrecent.get()
-    #w, h = (width % pixPrecent, height % pixPrecent)
-    #if ( w == h):
-    #    print("oke")
-    
 
 
 
@@ -86,19 +72,6 @@ def PixelEit(w,h,input,image):
 Attempt = 0
 pixButton = Button(ui, text="select image", command=pixelise)
 pixButton.pack()
-
-#def pixlt():
-#    image = filedialog.askopenfilename(initialdir = "/",title = "Select image",filetypes = (("JPG","*.jpg"),("PNG","*.png")))
-#    pixelise()
-    
-
-     
-
-
-
-
-
-#output = filedialog.askdirectory(initialdir = image,title = "Select output location",filetypes = (("JPG","*.jpg"),("PNG","*.png")))
 
 
 mainloop()
