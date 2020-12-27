@@ -14,11 +14,14 @@ ui = Tk()
 
 def pixelise():
     
-    image = filedialog.askopenfilename(initialdir = "/",title = "Select image",filetypes = (("PNG","*.png"),("JPG","*.jpg"),("Costum","*.*")))
-    # Input image
+    image = filedialog.askopenfilename(initialdir = "/",
+                                       title = "Select image",
+                                       filetypes = (("PNG","*.png"),("JPG","*.jpg"),("Costum","*.*")))
+
     input = PIL.Image.open(image)
     width, height = input.size
     pixButton.pack_forget()
+    
     if(width != height):
         PixDif(width, height,input,image)
     else:
@@ -29,11 +32,15 @@ def PixSquare(w,h,input,image):
     rl.pack()
     NewResX = Scale(ui, from_=1, to= w)
     NewResX.pack()
-    pixButton1 = Button(ui, text="pixelate", command=lambda : PixelEit(NewResX.get(),NewResX.get(),input,image))
+    pixButton1 = Button(ui,
+                        text="pixelate",
+                        command=lambda : PixelEit(NewResX.get(),
+                                                  NewResX.get(),
+                                                  input,image)
+                        )
+    
     pixButton1.pack()
     mainloop()
-
-
 
 def PixDif(w,h,input,image):
     wl = Label(ui, text="Width")
@@ -44,18 +51,15 @@ def PixDif(w,h,input,image):
     wl.pack()
     NewResY = Scale(ui, from_=1, to= h,  orient=HORIZONTAL)
     NewResY.pack()
-    pixButton1 = Button(ui, text="pixelate", command=lambda : PixelEit(NewResX.get(),NewResY.get(),input,image))
+    pixButton1 = Button(ui,
+                        text="pixelate",
+                        command=lambda : PixelEit(NewResX.get(),
+                                                  NewResY.get(),
+                                                  input,image))
     pixButton1.pack()
     mainloop()
-    
-
-
-    
    
 def PixelEit(w,h,input,image):
-    
-
-  
     output = input.resize((w,h),resample=PIL.Image.NEAREST)
     output = output.resize(input.size,PIL.Image.NEAREST)
     outputDialog = filedialog.askdirectory()
@@ -63,10 +67,6 @@ def PixelEit(w,h,input,image):
     print(path)
     output.save(path)
     ui.destroy()
-
-
-
-    
 
     # Initialize output image
 Attempt = 0
